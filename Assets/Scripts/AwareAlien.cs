@@ -20,6 +20,7 @@ public class AwareAlien : MonoBehaviour {
         } else if(lookingBack) {
             Anim.SetBool("Look", false);
             lookingBack = false;
+            Debug.Log("no gaze");
         }
     }
 }
