@@ -87,13 +87,13 @@ public class CameraController : MonoBehaviour {
             //rb.angularVelocity = new Vector3(rb.angularVelocity.x, -Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)), rb.angularVelocity.z);
         }
         // Vertical
-        if (IsLookingUp()) {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(-VerticalMaxAngle, transform.right), Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)) * Time.deltaTime);
-            //rb.angularVelocity = new Vector3(-Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)), rb.angularVelocity.y, rb.angularVelocity.z);
-        } else if (IsLookingDown()) {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(VerticalMaxAngle, transform.right), Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)) * Time.deltaTime);
-            //rb.angularVelocity = new Vector3(Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)), rb.angularVelocity.y, rb.angularVelocity.z);
-        }
+        //if (IsLookingUp()) {
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(-VerticalMaxAngle, transform.right), Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)) * Time.deltaTime);
+        //    //rb.angularVelocity = new Vector3(-Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)), rb.angularVelocity.y, rb.angularVelocity.z);
+        //} else if (IsLookingDown()) {
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(VerticalMaxAngle, transform.right), Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)) * Time.deltaTime);
+        //    //rb.angularVelocity = new Vector3(Speed * EyeAcceleration.Evaluate(Mathf.Clamp(elapsedTime, 0.0f, 1.0f)), rb.angularVelocity.y, rb.angularVelocity.z);
+        //}
     }
 
 
