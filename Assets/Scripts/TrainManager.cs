@@ -8,10 +8,16 @@ public class TrainManager : MonoBehaviour {
     public List<GameObject> InTrain;    
     public List<GameObject> Used;
 
+    public List<GameObject> BackgroundTiles;
+    private int backgroundIndex;
+    public float BackgroundSpeed;
+
     public float TripDuration;
     private float elapsedTime;
 	// Use this for initialization
 	void Start () {
+        // Reset background index
+        backgroundIndex = 0;
         // Reset timer
         elapsedTime = 0;
         // Pick initial monsters from unused list
@@ -56,6 +62,8 @@ public class TrainManager : MonoBehaviour {
             elapsedTime = 0;
             //Debug.Log("Station reached");
         }
+
+
 
 
     }
