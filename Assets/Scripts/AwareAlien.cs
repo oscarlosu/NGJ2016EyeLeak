@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class AwareAlien : MonoBehaviour {
-    public List<GazeAwareComponent> _gazeAware;
+    public GazeAwareComponent gazeAware;
     public Animator Anim;
 
     private bool lookingBack;
@@ -13,14 +12,7 @@ public class AwareAlien : MonoBehaviour {
     }
 
     void Update() {
-        bool hasGaze = false;
-        foreach(GazeAwareComponent part in _gazeAware) {
-            if(part.HasGaze) {
-                hasGaze = true;
-                break;
-            }
-        }
-        if (hasGaze) {
+        if (gazeAware.HasGaze) {
             //transform.Rotate(Vector3.forward);
             Anim.SetBool("Look", true);
             lookingBack = true;
@@ -29,6 +21,5 @@ public class AwareAlien : MonoBehaviour {
             Anim.SetBool("Look", false);
             lookingBack = false;
         }
-
     }
 }
