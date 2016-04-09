@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class TrainManager : MonoBehaviour {
 
-    public List<GameObject> Unused;
-    public List<GameObject> InTrain;    
-    public List<GameObject> Used;
+    public List<AwareAlien> Unused;
+    public List<AwareAlien> InTrain;    
+    public List<AwareAlien> Used;
 
     public List<GameObject> BackgroundTiles;
     private int backgroundIndex;
@@ -23,14 +23,14 @@ public class TrainManager : MonoBehaviour {
         // Pick initial monsters from unused list
         // First alien
         int index = Random.Range(0, Unused.Count);
-        GameObject alien1 = Unused[index];
-        alien1.SetActive(true);
+        AwareAlien alien1 = Unused[index];
+        alien1.gameObject.SetActive(true);
         Unused.RemoveAt(index);
         InTrain.Add(alien1);
         // Second alien
         index = Random.Range(0, Unused.Count);
-        GameObject alien2 = Unused[index];
-        alien2.SetActive(true);
+        AwareAlien alien2 = Unused[index];
+        alien2.gameObject.SetActive(true);
         Unused.RemoveAt(index);
         InTrain.Add(alien2);
     }
@@ -42,15 +42,16 @@ public class TrainManager : MonoBehaviour {
         // When the next station is reached
         if(elapsedTime >= TripDuration) {
             // Select alien to get off
-            int index = Random.Range(0, InTrain.Count);
-            GameObject outAlien = InTrain[index];
-            outAlien.SetActive(false);
+            //int index = Random.Range(0, InTrain.Count);
+            int index = SelectAlienToGetOff();
+            AwareAlien outAlien = InTrain[index];
+            outAlien.gameObject.SetActive(false);
             InTrain.RemoveAt(index);
             Used.Add(outAlien);
             // Select alien to get in
             index = Random.Range(0, Unused.Count);
-            GameObject inAlien = Unused[index];
-            inAlien.SetActive(true);
+            AwareAlien inAlien = Unused[index];
+            inAlien.gameObject.SetActive(true);
             Unused.RemoveAt(index);
             InTrain.Add(inAlien);
             // Move used to unused unused is empty
@@ -62,9 +63,19 @@ public class TrainManager : MonoBehaviour {
             elapsedTime = 0;
             //Debug.Log("Station reached");
         }
+    }
 
-
-
-
+    private int SelectAlienToGetOff() {
+        int index = 0;
+        float minTime = Mathf.Infinity;
+        for(int i = 0; i < InTrain.Count; ++i) {
+            if(InTrain[i].lookedAtTime < minTime) {
+                minTime = InTrain[i].lookedAtTime;
+                index = i;
+            }
+            // Reset aliens' interaction time every time you pick someone to get off
+            InTrain[i].lookedAtTime = 0;
+        }
+        return index;
     }
 }
