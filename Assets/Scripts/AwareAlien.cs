@@ -13,8 +13,11 @@ public class AwareAlien : MonoBehaviour {
 
     private bool looking;
 
-    void Start() {
+    public float lookedAtTime;
+
+    void OnEnable() {
         looking = false;
+        lookedAtTime = 0;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -34,6 +37,8 @@ public class AwareAlien : MonoBehaviour {
             Anim.SetBool("Look", false);
             looking = false;
             Debug.Log("no gaze");
+        } else if(gazeAware.HasGaze) {
+            lookedAtTime += Time.deltaTime;
         }
     }
 
