@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(GazePointDataComponent), typeof(UserPresenceComponent), typeof(Light))]
+[RequireComponent(typeof(GazePointDataComponent), typeof(UserPresenceComponent))]
 public class CameraController : MonoBehaviour {
     private GazePointDataComponent _gazePointDataComponent;
     private UserPresenceComponent _userPresenceComponent;
-    private Light _lightComponent;
     //private Rigidbody rb;
 
     // Exponential smoothing parameters, alpha must be between 0 and 1.
@@ -37,8 +36,6 @@ public class CameraController : MonoBehaviour {
     void Start() {
         _gazePointDataComponent = GetComponent<GazePointDataComponent>();
         _userPresenceComponent = GetComponent<UserPresenceComponent>();
-        _lightComponent = GetComponent<Light>();
-        //rb = GetComponent<Rigidbody>();
 
         CurrentState = LookingState.Center;
     }
@@ -109,10 +106,7 @@ public class CameraController : MonoBehaviour {
             HandleState();
             // Change camera rotation
             LookAround();
-
-            _lightComponent.enabled = true;
         } else {
-            _lightComponent.enabled = false;
             _hasHistoricPoint = false;
         }
     }
