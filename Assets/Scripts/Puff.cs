@@ -43,7 +43,7 @@ public class Puff : MonoBehaviour
 	{
 		ParticleSystem newParticleSystem = Instantiate(
 			prefab,
-			position,
+			position + new Vector3(0, 3, 0),
 			Quaternion.identity
 			) as ParticleSystem;
 		
@@ -52,7 +52,6 @@ public class Puff : MonoBehaviour
 			newParticleSystem.gameObject,
 			newParticleSystem.startLifetime
 			);
-		
-		return newParticleSystem;
+        return newParticleSystem;
 	}
 }
