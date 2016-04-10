@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 076ae109f9c384744b62fb099bd4a1dd
+timeCreated: 1460277599
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - PuffParticle: {fileID: 19830416, guid: 8c8e9a5d959444166b2db9fc862b6373, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
