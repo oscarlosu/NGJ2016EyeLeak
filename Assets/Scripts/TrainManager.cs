@@ -3,6 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class TrainManager : MonoBehaviour {
+    private static TrainManager instance;
+    public static TrainManager Instance {
+        get {
+            if(instance == null) {
+                instance = GameObject.FindGameObjectWithTag("TrainManager").GetComponent<TrainManager>();
+            }
+            return instance;
+        }
+    }
+
 
     public List<AwareAlien> Unused;
     public List<AwareAlien> InTrain;    

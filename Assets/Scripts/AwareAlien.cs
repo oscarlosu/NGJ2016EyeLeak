@@ -23,9 +23,18 @@ public class AwareAlien : MonoBehaviour {
 
     void Update() {
         if(!looking && gazeAware.HasGaze) {
-            // Get next sound and play it
-            PopLine();
-            audioSource.PlayDelayed(LineDelay);
+            // Stop other alien sounds
+            List<AwareAlien> aliensInTrain = TrainManager.Instance.InTrain;
+            foreach(AwareAlien a in aliensInTrain) {
+                if(a != this) {
+                    a.audioSource.Stop();
+                }               
+            }
+            if(!audioSource.isPlaying) {
+                // Get next sound and play it
+                PopLine();
+                audioSource.PlayDelayed(LineDelay);
+            }            
             // Look animation
             Anim.SetBool("Look", true);
             looking = true;
