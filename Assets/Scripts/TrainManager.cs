@@ -58,6 +58,8 @@ public class TrainManager : MonoBehaviour {
             outAlien.gameObject.SetActive(false);
             InTrain.RemoveAt(index);
             Used.Add(outAlien);
+            // Trigger puff
+            Puff.Instance.Explosion(outAlien.transform.position);
             // Select alien to get in
             index = Random.Range(0, Unused.Count);
             AwareAlien inAlien = Unused[index];
