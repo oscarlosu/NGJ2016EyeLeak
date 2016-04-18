@@ -4,12 +4,12 @@
 The aliens' stories were provided by other participants at the jam who we recorded.
 
 CREDITS
-Lead Programmer, Game Designer: Oscar Losada
-Xtreme Programmer, Game Designer: Martin Andersen
-Producer, Artist, Sound Assistant, Game Designer: Elise Terranova
-Producer, Game Designer: Julia Lotzow
-Music Producer, Game Designer: Nino Vaskov
-Character Design, Game Designer: Zack Wood
+Oscar Losada: Lead Programmer, Game Designer
+Martin Andersen: Programmer helper, Game Designer
+Elise Terranova: Producer, Artist, Sound Assistant, Game Designer
+Julia Lotzow: Producer, Game Designer
+Nino Vaskov: Music Producer, Game Designer
+Zack Wood: Character Design, Game Designer
 
 Logo by Nordic Game Jam Logo Shop
 
